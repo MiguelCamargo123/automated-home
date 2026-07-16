@@ -20,29 +20,31 @@ class Casa:
             self.hora = 0
 
     def ligar_luz(self) -> None:
-        aumento_temp = self.temperatura + random.randint(1, 2)
-        self.temperatura = aumento_temp
+        self.temperatura += random.randint(1, 2)
 
         print('A luz foi ligada!!!')
 
-        print(f'A temperatura atual é: {self.temperatura}')
+        print(f'A temperatura atual é: {self.temperatura} ºC')
 
-        tempo_mud = self.minuto + random.randint(1, 3)
+        tempo_mud = random.randint(1, 3)
 
         self._avançar_tempo(tempo_mud)
 
         print(f'Hora atual: {self.hora:02}:{self.minuto:02}')
 
+        self.janela = True
+
     def abrir_janela(self) -> None:
-        aumento_temp = self.temperatura + random.randint(2, 1)
-        self.temperatura = aumento_temp
+        self.temperatura += random.randint(1, 2)
 
         print('A janela foi aberta!!!')
 
-        print(f'A temperatura atual é: {self.temperatura}')
+        print(f'A temperatura atual é: {self.temperatura} ºC')
 
-        tempo_mud = self.minuto + random.randint(1, 4)
+        tempo_mud = random.randint(1, 4)
 
         self._avançar_tempo(tempo_mud)
 
         print(f'Hora atual: {self.hora:02}:{self.minuto:02}')
+
+        self.janela = True
