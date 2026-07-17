@@ -20,6 +20,10 @@ class Casa:
             self.hora = 0
 
     def ligar_luz(self) -> None:
+        if self.luz:
+            print('A luz ja esta ligada!!!')
+            return
+
         self.temperatura += random.randint(1, 2)
 
         print('A luz foi ligada!!!')
@@ -35,6 +39,10 @@ class Casa:
         self.janela = True
 
     def abrir_janela(self) -> None:
+        if self.janela:
+            print('A janela ja esta aberta')
+            return
+
         self.temperatura += random.randint(2, 3)
 
         print('A janela foi aberta!!!')
@@ -50,6 +58,10 @@ class Casa:
         self.janela = True
 
     def desligar_luz(self) -> None:
+        if not self.luz:
+            print('A luz ja esta desligada!!!')
+            return
+
         self.temperatura -= random.randint(1, 2)
 
         print('A luz foi desligada!!!')
@@ -65,6 +77,9 @@ class Casa:
         self.luz = False
 
     def fechar_janela(self) -> None:
+        if not self.janela:
+            print('A janela ja esta fechadaa!!!')
+
         self.temperatura -= random.randint(2, 3)
 
         print('A janela foi fechada!!!')
@@ -91,3 +106,23 @@ def main() -> None:
         print('3 - Desligar Luz')
         print('4 - Fechar a Janela')
         print('5 - Mostrar Status')
+        print('6 - Sair do Sistema')
+        print()
+
+        deseja_fazer: str = input('O que você deseja fazer (1, 2, 3, 4, 5 ou 6)? ')
+
+        match deseja_fazer:
+            case '1':
+                casa.ligar_luz()
+
+            case '2':
+                casa.abrir_janela()
+
+            case '3':
+                casa.desligar_luz()
+
+            case '4':
+                casa.fechar_janela()
+
+            case '5':
+                casa.mostrar_status()
