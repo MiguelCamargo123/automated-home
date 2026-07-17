@@ -36,7 +36,7 @@ class Casa:
 
         print(f'Hora atual: {self.hora:02}:{self.minuto:02}')
 
-        self.janela = True
+        self.luz = True
 
     def abrir_janela(self) -> None:
         if self.janela:
@@ -79,6 +79,7 @@ class Casa:
     def fechar_janela(self) -> None:
         if not self.janela:
             print('A janela ja esta fechadaa!!!')
+            return
 
         self.temperatura -= random.randint(2, 3)
 
@@ -94,22 +95,35 @@ class Casa:
 
         self.janela = False
 
+    def mostrar_status(self) -> None:
+        if self.luz:
+            print('A luz está ligada!!!')
+
+        else:
+            print('A Luz está desligada!!!')
+
+        if self.janela:
+            print('A janela está aberta!!!')
+
+        else:
+            print('A janela esta fechada!!!')
+
 
 def main() -> None:
     casa = Casa(False, False)
 
     while True:
-        print('---------- Casa automatizada ---------- ')
-        print()
+        print('\n')
+        print('---------- Casa automatizada ---------- \n')
         print('1 - Ligar Luz')
         print('2 - Abrir a Janela')
         print('3 - Desligar Luz')
         print('4 - Fechar a Janela')
         print('5 - Mostrar Status')
-        print('6 - Sair do Sistema')
-        print()
+        print('6 - Sair do Sistema\n')
 
         deseja_fazer: str = input('O que você deseja fazer (1, 2, 3, 4, 5 ou 6)? ')
+        print('\n')
 
         match deseja_fazer:
             case '1':
@@ -126,3 +140,14 @@ def main() -> None:
 
             case '5':
                 casa.mostrar_status()
+
+            case '6':
+                print('Obrigado por usar o sistema!!!')
+                break
+
+            case _:
+                print('Opção inválida!!!')
+
+
+if __name__ == '__main__':
+    main()
