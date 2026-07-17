@@ -1,4 +1,11 @@
 import random
+import os
+import subprocess
+
+
+def limpar_tela() -> None:
+    comando = 'cls' if os.name == 'nt' else 'clear'
+    subprocess.run(comando, shell=True)
 
 
 class Casa:
@@ -121,6 +128,7 @@ def main() -> None:
         print('4 - Fechar a Janela')
         print('5 - Mostrar Status')
         print('6 - Sair do Sistema\n')
+        print('-------------------------------------\n')
 
         deseja_fazer: str = input('O que você deseja fazer (1, 2, 3, 4, 5 ou 6)? ')
         print('\n')
