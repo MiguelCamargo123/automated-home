@@ -156,6 +156,8 @@ def main() -> None:
             case _:
                 print('Opção inválida!!!')
 
+        limpar_tela()
+
 
 if __name__ == '__main__':
     main()
