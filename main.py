@@ -8,6 +8,10 @@ def limpar_tela() -> None:
     subprocess.run(comando, shell=True)
 
 
+def pausar() -> None:
+    input('\nPressione Enter para continuar...')
+
+
 class Casa:
     def __init__(self, janela: bool, luz: bool) -> None:
         self.temperatura = 23
@@ -156,7 +160,9 @@ def main() -> None:
             case _:
                 print('Opção inválida!!!')
 
-        limpar_tela()
+        if deseja_fazer != '6':
+            pausar()
+            limpar_tela()
 
 
 if __name__ == '__main__':
